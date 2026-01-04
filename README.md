@@ -60,7 +60,7 @@ All agent communications use a validated JSON schema:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yadavanujkumar/Inter-Agent-Negotiation-for-Resource-Allocation.git
+git clone https://github.com/YOUR-USERNAME/Inter-Agent-Negotiation-for-Resource-Allocation.git
 cd Inter-Agent-Negotiation-for-Resource-Allocation
 
 # Install dependencies
@@ -120,7 +120,7 @@ The system generates a comprehensive negotiation path visualization showing:
 - **ZOPA** (Zone of Possible Agreement - shaded green area)
 - **Budget constraints** (horizontal reference lines)
 
-![Negotiation Path Example](negotiation_path.png)
+> **Note**: The visualization file `negotiation_path.png` is automatically generated when you run the simulation script.
 
 ## 🔬 Game Theory Concepts
 

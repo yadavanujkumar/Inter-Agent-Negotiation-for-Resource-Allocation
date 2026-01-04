@@ -544,12 +544,24 @@ class NegotiationOrchestrator:
         print("\n" + "-" * 80)
         print("PARETO OPTIMALITY ANALYSIS")
         print("-" * 80)
-        print(f"✓ Price within ZOPA ($350-$500): {'YES' if 350 <= final_price <= 500 else 'NO'}")
-        print(f"✓ Buyer Constraint Met (≤$500): {'YES' if final_price <= 500 else 'NO'}")
-        print(f"✓ Seller Constraint Met (≥$350): {'YES' if final_price >= 350 else 'NO'}")
-        print(f"✓ Both parties benefited from negotiation")
-        print(f"✓ No party can improve without making the other worse off")
-        print(f"✓ PARETO OPTIMAL AGREEMENT ACHIEVED ✓")
+        
+        buyer_satisfied = final_price <= 500
+        seller_satisfied = final_price >= 350
+        within_zopa = 350 <= final_price <= 500
+        
+        print(f"✓ Price within ZOPA ($350-$500): {'YES' if within_zopa else 'NO'}")
+        print(f"✓ Buyer Constraint Met (≤$500): {'YES' if buyer_satisfied else 'NO'}")
+        print(f"✓ Seller Constraint Met (≥$350): {'YES' if seller_satisfied else 'NO'}")
+        
+        # Verify Pareto optimality
+        is_pareto_optimal = agreement_reached and buyer_satisfied and seller_satisfied and within_zopa
+        
+        if is_pareto_optimal:
+            print(f"✓ Both parties benefited from negotiation")
+            print(f"✓ No party can improve without making the other worse off")
+            print(f"✓ PARETO OPTIMAL AGREEMENT ACHIEVED ✓")
+        else:
+            print(f"⚠ Agreement does not meet Pareto optimality criteria")
         
         return results
 
